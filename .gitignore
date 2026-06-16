@@ -1,0 +1,9 @@
+# Ignore all files by default
+*
+
+# Allow only the static website files
+!index.html
+!style.css
+!app.js
+!generated-image.png
+!.gitignore
