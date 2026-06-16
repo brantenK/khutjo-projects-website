@@ -2,30 +2,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* HSL tailored color palette matching the red/blue branding */
-  --bg-midnight: hsl(224, 71%, 4%);
-  --bg-slate: hsl(222, 47%, 7%);
-  --bg-card: hsla(223, 47%, 10%, 0.55);
-  --bg-card-hover: hsla(223, 47%, 14%, 0.85);
-  
-  --primary-blue: hsl(217, 91%, 56%);
-  --primary-blue-glow: hsla(217, 91%, 56%, 0.15);
-  --accent-red: hsl(355, 86%, 53%);
-  --accent-red-glow: hsla(355, 86%, 53%, 0.15);
-  --accent-teal: hsl(174, 86%, 47%);
-  
-  --border-light: rgba(255, 255, 255, 0.07);
-  --border-glow: rgba(217, 91, 56, 0.15);
-  
-  --text-pure: hsl(0, 0%, 100%);
-  --text-high: hsl(210, 20%, 98%);
-  --text-muted: hsl(215, 16%, 76%);
-  --text-dim: hsl(215, 12%, 58%);
-  
+  /* Warm light palette matching the red/blue branding */
+  --bg-midnight: hsl(42, 40%, 96%);
+  --bg-slate: hsl(40, 30%, 91%);
+  --bg-card: hsl(0, 0%, 100%);
+  --bg-card-hover: hsl(40, 33%, 97%);
+
+  --primary-blue: hsl(217, 88%, 50%);
+  --primary-blue-glow: hsla(217, 88%, 50%, 0.12);
+  --accent-red: hsl(355, 80%, 45%);
+  --accent-red-glow: hsla(355, 80%, 45%, 0.12);
+  --accent-teal: hsl(174, 65%, 30%);
+
+  --border-light: rgba(15, 23, 42, 0.08);
+  --border-glow: rgba(220, 38, 38, 0.15);
+
+  --text-pure: hsl(222, 47%, 11%);
+  --text-high: hsl(222, 35%, 18%);
+  --text-muted: hsl(220, 14%, 40%);
+  --text-dim: hsl(220, 10%, 52%);
+
+  /* Reserved for intentionally dark surfaces (hero form card, photo band, mobile nav) */
+  --bg-dark-surface: hsl(222, 45%, 9%);
+  --border-on-dark: rgba(255, 255, 255, 0.12);
+  --text-on-dark: hsl(0, 0%, 100%);
+  --text-on-dark-muted: hsl(220, 20%, 80%);
+  --text-on-dark-dim: hsl(220, 15%, 68%);
+
   /* Fonts */
   --font-display: 'Outfit', sans-serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
-  
+
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -59,9 +66,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: center;
   pointer-events: none;
@@ -76,7 +83,7 @@ body {
   pointer-events: none;
   z-index: -1;
   filter: blur(140px);
-  opacity: 0.12;
+  opacity: 0.05;
 }
 
 .glow-top-left {
@@ -139,23 +146,21 @@ body {
   margin: 0 auto;
 }
 
-/* Glassmorphic Panel Card */
+/* Card Panel */
 .glass-panel {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 20px;
   padding: 35px;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.1);
   transition: var(--transition-smooth);
 }
 
 .glass-panel:hover {
   background: var(--bg-card-hover);
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(15, 23, 42, 0.14);
   transform: translateY(-4px);
-  box-shadow: 0 20px 45px -5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 45px -5px rgba(15, 23, 42, 0.16);
 }
 
 /* Custom SVG Icons */
@@ -187,7 +192,7 @@ body {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--accent-red) 0%, hsl(355, 86%, 42%) 100%);
-  color: var(--text-pure);
+  color: var(--text-on-dark);
   box-shadow: 0 8px 30px rgba(220, 38, 38, 0.3);
 }
 
@@ -204,7 +209,7 @@ body {
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(15, 23, 42, 0.04);
   border-color: var(--text-muted);
   transform: translateY(-3px);
 }
@@ -217,16 +222,16 @@ header {
   width: 100%;
   z-index: 100;
   border-bottom: 1px solid var(--border-light);
-  background: rgba(4, 8, 17, 0.5);
+  background: rgba(248, 244, 234, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   transition: var(--transition-smooth);
 }
 
 header.scrolled {
-  background: rgba(4, 8, 17, 0.85);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background: rgba(248, 244, 234, 0.92);
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
 .navbar {
@@ -354,7 +359,7 @@ header.scrolled .logo-icon-img {
   gap: 10px;
   background: rgba(220, 38, 38, 0.08);
   border: 1px solid rgba(220, 38, 38, 0.2);
-  color: hsl(355, 90%, 65%);
+  color: hsl(355, 80%, 40%);
   padding: 8px 20px;
   border-radius: 100px;
   font-size: 0.85rem;
@@ -471,7 +476,7 @@ header.scrolled .logo-icon-img {
 }
 
 .badge-card {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 16px;
   padding: 25px;
@@ -479,8 +484,8 @@ header.scrolled .logo-icon-img {
 }
 
 .badge-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: var(--bg-card-hover);
+  border-color: rgba(15, 23, 42, 0.14);
   transform: translateY(-4px);
 }
 
@@ -494,7 +499,7 @@ header.scrolled .logo-icon-img {
   justify-content: center;
   color: var(--accent-red);
   margin-bottom: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.05);
 }
 
 .badge-card h4 {
@@ -540,11 +545,11 @@ header.scrolled .logo-icon-img {
   justify-content: center;
   color: var(--accent-red);
   background: linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.06);
 }
 
 .service-card:hover .service-icon-circle {
-  color: var(--text-pure);
+  color: var(--text-on-dark);
   background: linear-gradient(135deg, var(--accent-red) 0%, var(--primary-blue) 100%);
   border-color: transparent;
 }
@@ -602,7 +607,7 @@ header.scrolled .logo-icon-img {
 
 /* Featured Case Studies (The Wits Residence maintenance record) */
 .cases-section {
-  background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.4) 50%, transparent 100%);
+  background: var(--bg-slate);
 }
 
 .cases-grid {
@@ -612,7 +617,7 @@ header.scrolled .logo-icon-img {
 }
 
 .case-card {
-  background: rgba(255, 255, 255, 0.01);
+  background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 20px;
   padding: 30px;
@@ -620,8 +625,8 @@ header.scrolled .logo-icon-img {
 }
 
 .case-card:hover {
-  border-color: rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(15, 23, 42, 0.14);
+  background: var(--bg-card-hover);
   transform: translateY(-4px);
 }
 
@@ -657,7 +662,7 @@ header.scrolled .logo-icon-img {
   align-items: center;
   gap: 6px;
   font-size: 0.85rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(15, 23, 42, 0.045);
   padding: 4px 12px;
   border-radius: 4px;
   border: 1px solid var(--border-light);
@@ -679,14 +684,14 @@ header.scrolled .logo-icon-img {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-light);
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.15);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
   color: var(--primary-blue);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
 }
 
 .compliance-card h3 {
@@ -756,8 +761,8 @@ header.scrolled .logo-icon-img {
   width: 52px;
   height: 52px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-light);
+  background: rgba(220, 38, 38, 0.06);
+  border: 1px solid rgba(220, 38, 38, 0.14);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -809,7 +814,7 @@ header.scrolled .logo-icon-img {
 }
 
 .form-input-element {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--bg-slate);
   border: 1px solid var(--border-light);
   border-radius: 10px;
   padding: 15px 18px;
@@ -821,7 +826,7 @@ header.scrolled .logo-icon-img {
 
 .form-input-element:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--bg-card);
   border-color: var(--accent-red);
   box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
 }
@@ -836,7 +841,7 @@ select.form-input-element {
 }
 
 select.form-input-element option {
-  background-color: var(--bg-slate);
+  background-color: var(--bg-card);
   color: var(--text-high);
 }
 
@@ -853,14 +858,14 @@ select.form-input-element option {
   display: block;
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.2);
-  color: hsl(150, 85%, 45%);
+  color: hsl(150, 75%, 32%);
 }
 
 .form-submit-feedback.error {
   display: block;
   background: rgba(239, 68, 68, 0.08);
   border: 1px solid rgba(239, 68, 68, 0.2);
-  color: hsl(0, 85%, 65%);
+  color: hsl(0, 75%, 45%);
 }
 
 /* Footer styling */
@@ -912,7 +917,7 @@ footer {
 }
 
 .footer-bottom-bar {
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
   padding-top: 35px;
   display: flex;
   justify-content: space-between;
@@ -942,19 +947,17 @@ footer {
   color: var(--text-pure);
 }
 
-/* Stats Banner styling */
+/* Stats Banner styling — Johannesburg CBD sunset photo band */
 .stats-banner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   margin-top: 80px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-light);
+  background: linear-gradient(135deg, hsl(222, 45%, 9%), hsl(225, 40%, 14%));
+  border: 1px solid var(--border-on-dark);
   border-radius: 20px;
-  padding: 35px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+  padding: 65px 35px;
+  box-shadow: 0 30px 60px -10px rgba(15, 23, 42, 0.25);
   text-align: center;
   position: relative;
   z-index: 10;
@@ -974,7 +977,7 @@ footer {
   top: 15%;
   height: 70%;
   width: 1px;
-  background: var(--border-light);
+  background: var(--border-on-dark);
 }
 
 .stat-number {
@@ -985,15 +988,17 @@ footer {
   background: linear-gradient(135deg, var(--accent-red) 20%, var(--primary-blue) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.55));
 }
 
 .stat-label {
   font-family: var(--font-sans);
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-on-dark-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* Hero Form styling */
@@ -1002,11 +1007,9 @@ footer {
   width: 100%;
   padding: 30px;
   border-radius: 20px;
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid var(--border-light);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(160deg, hsl(222, 40%, 12%), hsl(225, 45%, 7%));
+  border: 1px solid var(--border-on-dark);
+  box-shadow: 0 30px 60px -10px rgba(15, 23, 42, 0.35);
   position: relative;
   z-index: 10;
 }
@@ -1016,12 +1019,12 @@ footer {
   font-size: 1.3rem;
   font-weight: 800;
   margin-bottom: 8px;
-  color: var(--text-pure);
+  color: var(--text-on-dark);
 }
 
 .hero-form-card p {
   font-size: 0.88rem;
-  color: var(--text-dim);
+  color: var(--text-on-dark-dim);
   margin-bottom: 20px;
 }
 
@@ -1039,6 +1042,59 @@ footer {
 @media (max-width: 480px) {
   .stats-banner {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Johannesburg CBD sunset photo section */
+.jhb-photo-section {
+  position: relative;
+  height: 460px;
+  background: linear-gradient(to bottom, rgba(10, 14, 26, 0) 45%, rgba(10, 14, 26, 0.8) 100%), url('johannesburg-sunset.jpg');
+  background-size: cover;
+  background-position: center 22%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 50px;
+}
+
+.jhb-photo-caption {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.jhb-photo-caption h2 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-on-dark);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+  max-width: 600px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .jhb-photo-section {
+    height: 340px;
+  }
+  .jhb-photo-caption h2 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .jhb-photo-section {
+    height: 280px;
+    padding-bottom: 30px;
+  }
+  .jhb-photo-caption {
+    padding: 0 20px;
+  }
+  .jhb-photo-caption h2 {
+    font-size: 1.4rem;
   }
 }
 
@@ -1061,25 +1117,25 @@ footer {
     text-align: center;
     gap: 50px;
   }
-  
+
   .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   .hero-pitch {
     margin: 0 auto 40px auto;
   }
-  
+
   .hero-buttons {
     justify-content: center;
   }
-  
+
   .about-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 50px;
@@ -1090,18 +1146,18 @@ footer {
   .section-title {
     font-size: 2.2rem;
   }
-  
+
   .hero-headline {
     font-size: 3.2rem;
   }
-  
+
   .nav-list {
     position: fixed;
     top: 90px;
     left: -100%;
     width: 100%;
     height: calc(100vh - 90px);
-    background: rgba(4, 8, 17, 0.96);
+    background: rgba(248, 244, 234, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
@@ -1110,32 +1166,32 @@ footer {
     transition: var(--transition-smooth);
     z-index: 99;
   }
-  
+
   .nav-list.active {
     left: 0;
   }
-  
+
   .navbar-toggle {
     display: flex;
   }
-  
+
   .navbar-toggle.active span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-  
+
   .navbar-toggle.active span:nth-child(2) {
     opacity: 0;
   }
-  
+
   .navbar-toggle.active span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-  
+
   .footer-columns {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .form-row {
     grid-template-columns: 1fr;
     gap: 22px;

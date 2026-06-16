@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 4. Interactive Services Detailed Modals or Section scroll
-  const serviceActions = document.querySelectorAll('.service-action');
+  const serviceActions = document.querySelectorAll('.service-action-link');
   const serviceSelect = document.getElementById('quote-service');
 
   serviceActions.forEach(action => {
